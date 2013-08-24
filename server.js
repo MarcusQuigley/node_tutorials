@@ -19,7 +19,7 @@ var port =  process.env.PORT || 5000;
 var server = http.createServer(function(request, response){
 	console.log("Received request " + request.url);
 //	response.writeHead(200, {"Content-type":"text/plain"});
-	response.write("Hello world2");
+	response.end("Hello world2");
 });
 server.listen(port, function(){
 	console.log("Listening at :" + port);
