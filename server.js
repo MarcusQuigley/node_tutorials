@@ -7,7 +7,7 @@ var fs = require('fs');
 var port =  process.env.PORT || 5000;
 var server = http.createServer(function(request, response){
 	console.log("Received request " + request.url);
-	fs.readFile("./public" + request.url, function(error, data){
+	fs.readFile("./filestoHost" + request.url, function(error, data){
 		if (error) {
 			response.writeHead(404, {"Content-type":"text/plain"});
 			response.end("Sorry page can't be found");
