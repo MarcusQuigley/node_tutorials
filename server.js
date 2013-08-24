@@ -15,12 +15,12 @@
 var http = require('http');
 console.log("Starting");
 //var host = "127.0.0.1";
-//var port = 1337;
-//var server = http.createServer(function(request, response){
-//	console.log("Received request " + request.url);
+var port =  process.env.PORT || 5000;
+var server = http.createServer(function(request, response){
+	console.log("Received request " + request.url);
 //	response.writeHead(200, {"Content-type":"text/plain"});
-//	response.end("Hello world2");
-//});
-//server.listen(port, function(){
-//	console.log("Listening at " + host + ":" + port);
-//});
+	response.write("Hello world2");
+});
+server.listen(port, function(){
+	console.log("Listening at :" + port);
+});
