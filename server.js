@@ -14,12 +14,13 @@
 
 var http = require('http');
 console.log("Starting");
+var dateNow = new Date();
 //var host = "127.0.0.1";
 var port =  process.env.PORT || 5000;
 var server = http.createServer(function(request, response){
 	console.log("Received request " + request.url);
-//	response.writeHead(200, {"Content-type":"text/plain"});
-	response.end("Hello world2");
+	response.writeHead(200, {"Content-type":"text/plain"});
+	response.end("Hello world at " + dateNow.getDate());
 });
 server.listen(port, function(){
 	console.log("Listening at :" + port);
