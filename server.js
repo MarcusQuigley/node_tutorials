@@ -20,6 +20,6 @@ var server = http.createServer(function(request, response){
 	response.writeHead(200, {"Content-type":"text/plain"});
 	response.end("Hello world2");
 });
-server.listen(port, host, function(){
+server.listen(port, function(){
 	console.log("Listening at " + host + ":" + port);
 });
