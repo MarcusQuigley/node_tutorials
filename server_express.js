@@ -6,7 +6,7 @@ var port = process.env.PORT || config.port;
 var app = express();
 
 app.use(app.router);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/filestoHost'));
 
 app.get("/", function(request, response){
 	response.send("Hello from express");
