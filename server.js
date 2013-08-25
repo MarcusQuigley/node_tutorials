@@ -5,7 +5,7 @@ var dateNow = new Date();
 //var host = "127.0.0.1";
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json'));
-var port =process.env.PORT;// config.port;
+var port =process.env.PORT || config.port;
 
 var server = http.createServer(function(request, response){
 	console.log("Received request " + request.url);
