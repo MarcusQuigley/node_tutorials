@@ -14,7 +14,7 @@ app.get("/", function(request, response){
 });
 
 app.get("/hello/:texts", function(request, response){
-	response.send("HELLO " + request.params.text);
+	response.send("HELLO " + request.params.texts);
 });
 
 app.listen(port);
