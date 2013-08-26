@@ -13,7 +13,7 @@ app.get("/", function(request, response){
 
 });
 
-app.get("/hello/:text", function(request, response){
+app.get("/hello/:texts", function(request, response){
 	response.send("HELLO " + request.params.text);
 });
 
