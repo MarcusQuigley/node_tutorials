@@ -60,7 +60,9 @@ mongoClient.connect(connString, function(error, db){
 
 
 function getTweets(callback){
-	tweetsCollection.find({}, {"limit":10, "sort": {"_id",-1}}).toArray(function(error, tweets){
+	//tweetsCollection.find({}, {"limit":10, "sort": {"_id",-1}}).toArray(function(error, tweets){
+	tweetsCollection.find({}, {"limit":10}).sort({"_id":-1}).toArray(function(error, tweets){
+
 		if (error){
 			console.log("Error getting tweets collection", error);
 		} else {
