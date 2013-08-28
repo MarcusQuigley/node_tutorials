@@ -7,6 +7,7 @@ var config = JSON.parse(fs.readFileSync('config.json'));
 //var host = config.host;
 var port = process.env.PORT || 5000;
 var connString = process.env.MONGOHQ_URL;
+var searchString = 'bieber';
 //var dbPort = mongo.Connection.DEFAULT_PORT;
 var twitter = require("ntwitter");
 var credentials = require("./credentials.js");
