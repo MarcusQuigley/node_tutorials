@@ -1,1 +1,1 @@
-web: node server_realltimeTweets.js
+web: node createMongoTableinHeroku.js
