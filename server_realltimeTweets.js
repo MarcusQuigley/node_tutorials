@@ -8,7 +8,9 @@ var port = process.env.PORT || config.port;
 var app = express();
 
 app.get("/", function(request, response){
-	response.send("hello...");	
+	var content = fs.readFileSync("template.html");
+	response.setHeader("Content-Type", "text/html");
+	response.send(content);	
 	
 });
 
