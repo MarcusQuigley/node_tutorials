@@ -64,7 +64,8 @@ function getTweets(callback){
 		if (error){
 			console.log("Error getting tweets collection", error);
 		} else {
-			console.log("No of tweets returned:", tweets.length);
+			var currentDateTime = new Date();
+			console.log("No of tweets returned: " + tweets.length + " at " + currentDateTime);
 			callback(tweets);
 		}
 	});
