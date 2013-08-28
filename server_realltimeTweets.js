@@ -9,7 +9,7 @@ var port = process.env.PORT || 5000;
 var connString = process.env.MONGOHQ_URL;
 //var dbPort = mongo.Connection.DEFAULT_PORT;
 var app = express();
-
+var tweetsCollection;
 app.get("/", function(request, response){
         var content = fs.readFileSync("template.html");
 
@@ -36,7 +36,7 @@ mongoClient.connect(connString, function(error, db){
 	if (error){
 		console.log("Error connecting to db:", error);
 	} else {
-		var tweetsCollection = db.collection('tweets');
+		tweetsCollection = db.collection('tweets');
 	}
 
 });
