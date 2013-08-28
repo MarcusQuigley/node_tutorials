@@ -47,6 +47,7 @@ function getTweets(callback){
 		if (error){
 			console.log("Error getting tweets collection", error);
 		} else {
+			console.log("No of tweets returned:", tweets.length);
 			callback(tweets);
 			
 			}
