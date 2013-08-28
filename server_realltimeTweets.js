@@ -15,7 +15,7 @@ app.get("/", function(request, response){
 
 	getTweets(function(tweets){
 		var ul='';
-		tweets.ForEach(function(tweet){
+		tweets.forEach(function(tweet){
 			ul += "<li><strong>" + tweet.user.screen_name + ": </strong>" + tweet.text + "</li>";
 		});
 		content.toString("utf8").replace("{{INITIAL_TWEETS}}", ul);
