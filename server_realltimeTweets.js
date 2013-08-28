@@ -18,7 +18,7 @@ app.get("/", function(request, response){
 		tweets.forEach(function(tweet){
 			ul += "<li><strong>" + tweet.id + ": </strong>" + tweet.text + "</li>";
 		});
-		content.toString("utf8").replace("{{INITIAL_TWEETS}}", ul);
+		content = content.toString("utf8").replace("{{INITIAL_TWEETS}}", ul);
 		response.setHeader("Content-Type", "text/html");
 	        response.send(content);
 	});
