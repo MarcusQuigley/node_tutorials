@@ -43,15 +43,16 @@ mongoClient.connect(connString, function(error, db){
 
 
 function getTweets(callback){
-	tweetsCollection.find({}, {"limit":10, "_id":-1}, function(error, cursor){
+	tweetsCollection.find({}, {"limit":10, "_id":-1}).toArray(function(error, tweets){
 		if (error){
 			console.log("Error getting tweets collection", error);
 		} else {
-			cursor.toArray(function(error, tweets){
-				callback(tweets);
-			});
+			callback(tweets);
+			
+			}
+		});
 		}
-	});
+	
 
-}
+
 
