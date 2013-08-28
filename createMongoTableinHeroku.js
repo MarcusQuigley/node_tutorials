@@ -4,7 +4,7 @@ console.log("Connection string", process.env.MONGOHQ_URL);
 
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient
-var connString = "mongodb://<user>:<password>@paulo.mongohq.com:10047"; 
+var connString =process.env.MONGOHQ_URL;// "mongodb://<user>:<password>@paulo.mongohq.com:10047/app17709421"; 
 
 MongoClient.connect(connString, function(err, db) {
   // operate on the collection named "test"
