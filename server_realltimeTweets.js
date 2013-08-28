@@ -8,7 +8,7 @@ var port = process.env.PORT || config.port;
 var app = express();
 
 app.get("/", function(request, response){
-	response.send("hello");	
+	response.send("hello...");	
 	
 });
 
