@@ -2,10 +2,12 @@
 var express = require('express');
 var fs = require('fs');
 var mongo = require('mongodb');
+var mongoClient = mongo.MongoClient;
 var config = JSON.parse(fs.readFileSync('config.json'));
-var host = config.host;
+//var host = config.host;
 var port = process.env.PORT || 5000;
-var dbPort = mongo.Connection.DEFAULT_PORT;
+var connString = process.env.MONGOHQ_URL;
+//var dbPort = mongo.Connection.DEFAULT_PORT;
 var app = express();
 
 app.get("/", function(request, response){
@@ -29,23 +31,16 @@ console.log("listening on port:", port);
 
 //process.exit(1);
 
-var db = new mongo.Db("Nodejs_introduction", new mongo.Server(host, dbPort, {}));
-var tweetsCollection;
-
-db.open(function(error){
-	if (error) {
-		console.log("Error opening database:", error);
+//var db = new mongo.Db("Nodejs_introduction", new mongo.Server(host, dbPort, {}));
+mongoClient.connect(connString, function(error, db){
+	if (error){
+		console.log("Error connecting to db:", error);
 	} else {
-		console.log("db open at " + host + ":" + dbPort);
-		db.collection("tweet", function(error, collection){
-			if (error) {		       
-				console.log("Error getting data");
-			} else {
-				tweetsCollection = collection;
-			}
-		});
+		var tweetsCollection = db.collection('tweets');
 	}
+
 });
+
 
 function getTweets(callback){
 	tweetsCollection.find({}, {"limit":10, "_id":-1}, function(error, cursor){
