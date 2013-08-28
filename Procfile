@@ -1,1 +1,2 @@
-web: node createMongoTableinHeroku.js
+
+web: node inserttweetsHeroku.js
