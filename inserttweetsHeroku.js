@@ -1,6 +1,6 @@
 
 var mongo = require('mongodb');
-var mongoClient = mongodb.Client;
+var mongoClient = mongo.Client;
 var connString = process.env.MONGOHQ_URL;
 
 var host = "127.0.0.1";
