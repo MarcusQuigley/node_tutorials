@@ -29,6 +29,7 @@ app.get("/", function(request, response){
 });
 
 app.listen(port);
+var io = require('socket.io').listen(app);
 console.log("listening on port:", port);
 
 
@@ -48,6 +49,7 @@ mongoClient.connect(connString, function(error, db){
                                                                 console.log("Error inserting tweet:", error);
                                                         } else {                                         
                                                                console.log("Inserted", result);
+									io.sockets.emit("tweet", tweet);
                                                         }
                                                         });
 
