@@ -12,5 +12,5 @@ app.get("/", function(request, response){
 	
 });
 
-app.listen(port);
+app.listen(host, port);
 console.log("listening on port:", port);
