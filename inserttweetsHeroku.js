@@ -23,8 +23,8 @@ var t = new twitter({
    access_token_key: credentials.access_token_key,
    access_token_secret: credentials.access_token_secret
 });
-
-mongoClient.connect(connString,function(error,db){
+console.log(connString);
+mongoClient.connect(connString, function(error,db){
 	if (error){
 		console.log("Error connecting to db:", error);
 	} else {
