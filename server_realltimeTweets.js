@@ -8,6 +8,9 @@ var config = JSON.parse(fs.readFileSync('config.json'));
 var port = process.env.PORT || 5000;
 var connString = process.env.MONGOHQ_URL;
 //var dbPort = mongo.Connection.DEFAULT_PORT;
+var twitter = require("ntwitter");
+var credentials = require("./credentials.js");
+
 var app = express();
 var tweetsCollection;
 app.get("/", function(request, response){
@@ -37,6 +40,19 @@ mongoClient.connect(connString, function(error, db){
 		console.log("Error connecting to db:", error);
 	} else {
 		tweetsCollection = db.collection('tweets');
+                t.stream('statuses/filter', {track: [searchString]},
+                                function(stream){
+                                        stream.on('data', function(tweet){
+                                                tweetsCollection.insert([{id: tweet.id}, {text: tweet.text}], function(error, result){                                                     						  if (error){
+                                                                console.log("Error inserting tweet:", error);
+                                                        } else {                                         
+                                                               console.log("Inserted", result);
+                                                        }
+                                                        });
+
+                                        });
+                                }
+                        );
 	}
 
 });
@@ -49,11 +65,16 @@ function getTweets(callback){
 		} else {
 			console.log("No of tweets returned:", tweets.length);
 			callback(tweets);
-			
-			}
-		});
 		}
-	
+	});
+}
+
+var t = new twitter({
+   consumer_key: credentials.consumer_key,
+   consumer_secret: credentials.consumer_secret,
+   access_token_key: credentials.access_token_key,
+   access_token_secret: credentials.access_token_secret
+});	
 
 
 
