@@ -1,6 +1,6 @@
 
 console.log("Connection string", process.env.MONGOHQ_URL);
-process.exit(1);
+//process.exit(1);
 
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient
