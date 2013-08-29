@@ -49,7 +49,7 @@ mongoClient.connect(connString, function(error, db){
                                                                 console.log("Error inserting tweet:", error);
                                                         } else {                                         
                                                                console.log("Inserted", result);
-									io.sockets.emit("tweet", tweet);
+									io.sockets.emit("tweet", result);
                                                         }
                                                         });
 
