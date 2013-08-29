@@ -11,7 +11,7 @@ var searchString = 'nick cave';
 //var dbPort = mongo.Connection.DEFAULT_PORT;
 var twitter = require("ntwitter");
 var credentials = require("./credentials.js");
-var http= require('http");
+var http= require('http');
 var server = http.createServer(app);
 var app = express();
 var tweetsCollection;
