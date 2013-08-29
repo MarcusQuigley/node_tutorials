@@ -14,8 +14,8 @@
 	</ul>
 	
 	<script type="text/javascript">
-		alrt("HELO");
-		var port = process.env.MONGOHQ_URL;
+	
+		var port =process.env.PORT;
 		alert(port);
 		document.getElementById("portID").innerHTML ="port: " + port;
 		var socket = io.connect('http://127.0.0.1:' + port);

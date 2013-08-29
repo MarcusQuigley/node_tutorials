@@ -45,11 +45,11 @@ mongoClient.connect(connString, function(error, db){
                 t.stream('statuses/filter', {track: [searchString]},
                                 function(stream){
                                         stream.on('data', function(tweet){
+					io.sockets.emit("tweet", tweet);
                                                 tweetsCollection.insert([{id: tweet.id}, {text: tweet.text}], function(error, result){                                                     						  if (error){
                                                                 console.log("Error inserting tweet:", error);
                                                         } else {                                         
                                                                console.log("Inserted", result);
-									io.sockets.emit("tweet", result);
                                                         }
                                                         });
 
