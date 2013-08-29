@@ -5,7 +5,7 @@ var mongo = require('mongodb');
 var mongoClient = mongo.MongoClient;
 var config = JSON.parse(fs.readFileSync('config.json'));
 //var host = config.host;
-var port = 49300;// process.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 var connString = process.env.MONGOHQ_URL;
 var searchString = 'nick cave';
 //var dbPort = mongo.Connection.DEFAULT_PORT;
@@ -33,6 +33,10 @@ app.get("/", function(request, response){
 
 //app.listen(port);
 var io = require('socket.io').listen(server);
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 server.listen(port);
 console.log("listening on port:", port);
 
