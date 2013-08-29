@@ -5,25 +5,13 @@
   <script src="/socket.io/socket.io.js"></script>
  <head>
  <body>
-<script type="text/javascript">
- var port =process.env.PORT;
-                alert(port);
-alert("Hello world");
-</script>
-	<div id="portID">
-	    This text will change
-	</div>
 	<h1>Real Time Tweets</h1>
 	<ul id="tweets">
 		{{INITIAL_TWEETS}}
 	</ul>
 	
 	<script type="text/javascript">
-	
-		var port =process.env.PORT;
-		alert(port);
-		document.getElementById("portID").innerHTML ="port: " + port;
-		var socket = io.connect('http://127.0.0.1:' + port);
+		var socket = io.connect('http://127.0.0.1';
 		var ul = document.getElementById("tweets");
 		socket.on("tweet", function(tweet){
 			var li=document.createElement("li");
