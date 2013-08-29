@@ -12,7 +12,7 @@
                 var ul = document.getElementById("tweets");
                 socket.on("tweet", function(tweet){
                         var li=document.createElement("li");
-                        li.innerHtml = <strong>" + tweet.id + ": </strong>" + tweet.text;
+                        li.innerHtml = "<strong>" + tweet.id + ": </strong>" + tweet.text;
                         ul.insertBefore(li, ul.getElementByTagName("li")[0]);
                 });
         </script>
