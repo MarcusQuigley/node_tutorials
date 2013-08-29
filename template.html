@@ -5,6 +5,9 @@
   <script src="/socket.io/socket.io.js"></script>
  <head>
  <body>
+	<div id="portID">
+    This text will change
+</div>
 	<h1>Real Time Tweets</h1>
 	<ul id="tweets">
 		{{INITIAL_TWEETS}}
@@ -12,6 +15,7 @@
 	
 	<script type="text/javascript">
 		var port = process.env.MONGOHQ_URL;
+		document.getElementById("portID").innerHTML ="port: " + port;
 		var socket = io.connect('http://127.0.0.1:' + port);
 		var ul = document.getElementById("tweets");
 		socket.on("tweet", function(tweet){
