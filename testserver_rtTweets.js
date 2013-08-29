@@ -35,7 +35,7 @@ app.get("/", function(request, response){
 var io = require('socket.io').listen(server);
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
+  io.set("polling duration", 1000); 
 });
 server.listen(port);
 console.log("listening on port:", port);
